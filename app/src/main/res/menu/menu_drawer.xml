@@ -1,5 +1,5 @@
-<!-- dibujo de los elementos del menú -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- dibujo de los elementos del menú -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">

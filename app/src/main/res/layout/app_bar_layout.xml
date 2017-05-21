@@ -1,8 +1,9 @@
-<!-- layout que construye lo principal de la vista del main
-la toolbar(¡quitar toolbar x defecto en Manifest para el error!) despliega menú
-y el content para meter lo que sea, fragments de momento
--->
 <?xml version="1.0" encoding="utf-8"?>
+    <!--
+    layout que construye lo principal de la vista del main
+    la toolbar (¡quitar toolbar x defecto en Manifest para el error!) despliega menú
+    y el content para meter lo que sea, fragments de momento
+    -->
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
