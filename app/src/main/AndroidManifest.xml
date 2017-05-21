@@ -50,6 +50,10 @@
         <activity
             android:name=".Activities.GoogleMaps"
             android:label="@string/titulo_mapa"></activity>
+
+        <activity
+            android:name=".Activities.Info"
+            android:label="@string/actividad_info"></activity>
     </application>
 
 </manifest>

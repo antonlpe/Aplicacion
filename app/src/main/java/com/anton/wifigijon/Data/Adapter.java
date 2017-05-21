@@ -14,6 +14,11 @@ import com.anton.wifigijon.Activities.GoogleMaps;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+
+import com.anton.wifigijon.Activities.Info;
+import com.anton.wifigijon.Activities.MainActivity;
+import com.anton.wifigijon.Fragments.Fragment_info;
+import com.anton.wifigijon.Fragments.Fragment_show_info;
 import com.anton.wifigijon.R;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +31,8 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.AdapterViewHolder> {
     private List<Items> items;
     private Context context;
+    private int type;
+
 
     public static class AdapterViewHolder extends RecyclerView.ViewHolder {
         // Campos respectivos de un item
@@ -43,9 +50,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.AdapterViewHolder> {
         }
     }
 
-    public Adapter(Context context, List<Items> items) {
+    public Adapter(Context context, List<Items> items, int type) {
         this.items = items;
         this.context = context;
+        this.type = type;
     }
 
     @Override
@@ -72,12 +80,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.AdapterViewHolder> {
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, GoogleMaps.class);
-                //aqui se pasan los datos del item a la segunda actividad
-                intent.putExtra("latitud", Items.getLat());
-                intent.putExtra("longitud", Items.getLon());
-                intent.putExtra("nombre", Items.getNombre());
-                context.startActivity(intent);
+                if(type == 0){
+                    Intent intent = new Intent(context, GoogleMaps.class);
+                    //aqui se pasan los datos del item a la segunda actividad
+                    intent.putExtra("latitud", Items.getLat());
+                    intent.putExtra("longitud", Items.getLon());
+                    intent.putExtra("nombre", Items.getNombre());
+                    context.startActivity(intent);
+                } else if(type == 1){
+                    Intent intent = new Intent(context, Info.class);
+                    //aqui se pasan los datos del item a la segunda actividad
+                    intent.putExtra("ubicacion", Items.getUbicacion());
+                    intent.putExtra("nombre", Items.getNombre());
+                    context.startActivity(intent);
+                }
             }
         });
     }

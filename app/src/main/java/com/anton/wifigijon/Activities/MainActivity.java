@@ -3,20 +3,18 @@ package com.anton.wifigijon.Activities;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
-
+import com.anton.wifigijon.Fragments.Fragment_info;
 import com.anton.wifigijon.R;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-
 import com.anton.wifigijon.Fragments.Fragment_list;
-
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
@@ -65,16 +63,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         //replace -> dónde reemplazar, qué reemplazar
         if (id == R.id.visualizar) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();  //
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();
             setTitle(getString(R.string.fragmento_lista));
         } else if (id == R.id.mi_ubicacion) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();  //
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_info()).commit();
             setTitle(getString(R.string.fragmento_mi_ubicacion));
         } else if (id == R.id.compartir) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();  //
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();
             setTitle(getString(R.string.fragmento_compartir));
         } else if (id == R.id.favoritos) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();  //
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();
             setTitle(getString(R.string.fragmento_favoritos));
         }
 
@@ -82,4 +80,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

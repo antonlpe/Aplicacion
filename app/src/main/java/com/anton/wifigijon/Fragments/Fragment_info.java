@@ -1,30 +1,32 @@
 package com.anton.wifigijon.Fragments;
 
 import android.content.Context;
-
-import com.android.volley.Response;
-import com.anton.wifigijon.Data.Datos;
-import com.anton.wifigijon.Data.GsonRequest;
-import com.anton.wifigijon.Data.VolleyManager;
 import android.os.Bundle;
-import com.anton.wifigijon.R;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.volley.Response;
 import com.anton.wifigijon.Data.Adapter;
+import com.anton.wifigijon.Data.Datos;
+import com.anton.wifigijon.Data.GsonRequest;
 import com.anton.wifigijon.Data.Items;
+import com.anton.wifigijon.Data.VolleyManager;
+import com.anton.wifigijon.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * FRAGMENTO QUE MUESTRA UNA LISTA DELAS UBICACIONES, OBTIENE LA INFORMACIÓN Y OBTIENE LOS DATOS
- * SE CREA EN UN ADAPTER TIPO 0 PARA LLAMAR EN onBindViewHolder AL MAPA
- */
-public class Fragment_list extends Fragment {
+ * ESTE FRAGMENTO ES IGUAL QUE EL QUE MUESTRA LAS UBICACIONES DEL MAPA PERO COGERÁ LOS DATOS
+ * PARA MOSTRAR INFORMACIÓN. SE CREA UN ADAPTER DE TIPO 1 PARA LLAMAR EN onBindViewHolder AL FRAGMENTO DE INFORMACIÓN
+ *
+ * */
+
+public class Fragment_info extends Fragment {
     private static final String URL = "http://datos.gijon.es/doc/ciencia-tecnologia/zona-wifi.json";
     View rootView;
     Context context;
@@ -33,9 +35,10 @@ public class Fragment_list extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public Fragment_list() {
+    public Fragment_info() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +52,7 @@ public class Fragment_list extends Fragment {
         return rootView;
     }
 
+
     private void initRecyclerView() {
 
         final List items = new ArrayList<>();
@@ -58,29 +62,22 @@ public class Fragment_list extends Fragment {
 
             @Override
             public void onResponse(final Datos response) {
-                //obtener por separado latitud y longitud y añadir todo a la lista de items
+                //en este caso obtener información a mostrar como texto
                 for(int i=0;i<67;i++){
-                    String localizacion = response.getDirectorio().get(i).getLocalizacion().getCoordenadas();
-                    if(localizacion != null){
-                        String delimitador = "[ ]+";
-                        String[] latlong = localizacion.split(delimitador);
-                        String latitud = latlong[0];
-                        String longitud = latlong[1];
+                    String ubicacion = response.getDirectorio().get(i).getLocalizacion().getCoordenadas();
+                    if(ubicacion != null){
                         String descripcion = response.getDirectorio().get(i).getNombre().getNombreMarcador();
-                        float lat = Float.parseFloat(latitud);
-                        float lon = Float.parseFloat(longitud);
-                        items.add(new Items(R.drawable.ic_wifi, descripcion, lat, lon));
+                        items.add(new Items(R.drawable.ic_wifi, descripcion, ubicacion));
                     }
                 }
-
                 //código de transparencias de teoría sobre uso de recyclerview
                 mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
                 mRecyclerView.setHasFixedSize(true);
                 mLayoutManager = new LinearLayoutManager(context); // para que los items salgan en cuadrados como si fuese una galeria de fotos cambiar el linearlayoutmanager por gridlayoutmanager
                 mRecyclerView.setLayoutManager(mLayoutManager);
                 //el context para lanzar la segunda actividad desde la pulsacion de un item
-                //0 ES EN EL IF DEL ADAPTER, LLAMAR AL MAPA
-                adapter = new Adapter(context,items,0);
+                //1 ES EN EL IF DEL ADAPTER, LLAMAR AL FRAGMENTO DE INFORMACIÓN
+                adapter = new Adapter(context,items,1);
                 mRecyclerView.setAdapter(adapter);
             }//onResponse
         };//response
@@ -90,4 +87,6 @@ public class Fragment_list extends Fragment {
 
 
     }//initRecyclerView
+
+
 }

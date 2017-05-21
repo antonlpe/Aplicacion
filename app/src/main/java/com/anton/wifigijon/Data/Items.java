@@ -11,15 +11,23 @@ package com.anton.wifigijon.Data;
 public class Items {
     private int imagen;
     private String nombre;
+    private String ubicacion;
     private float lat;
     private float lon;
 
+    //constructor para mapa
     public Items(int imagen, String nombre, float lat, float lon) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.lat = lat;
         this.lon = lon;
+    }
 
+    //constructor de copia para la lista de mostrar información
+    public Items(int imagen, String nombre, String ubicacion) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
     }
 
     public String getNombre() {
@@ -38,6 +46,5 @@ public class Items {
         return lon;
     }
 
-
-
+    public String getUbicacion() {return ubicacion;}
 }

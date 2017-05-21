@@ -5,8 +5,12 @@
     <string name="fragmento_compartir">Compartir información</string>
     <string name="fragmento_favoritos">Favoritos</string>
     <string name="titulo_mapa">Mapa</string>
+    <string name="actividad_info">Información de punto wifi</string>
     <string name="menu_principal">Menú principal</string>
     <string name="ajustes">Ajustes</string>
     <string name="abierto">Menú abierto</string>
     <string name="cerrado">Menú cerrado</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
