@@ -2,10 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.anton.wifigijon.Fragments.Fragment_show_info">
+    tools:context="com.anton.wifigijon.Fragments.FragmentShowInfo">
 
     <TextView
-        android:text="probando"
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/text_info" />

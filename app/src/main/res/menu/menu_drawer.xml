@@ -4,21 +4,25 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/visualizar"
+            android:id="@+id/puntos_wifi"
             android:icon="@drawable/ic_wifi"
-            android:title="Zonas wifi" />
+            android:title="@string/menu_puntos_wifi" />
         <item
             android:id="@+id/mi_ubicacion"
             android:icon="@drawable/ic_mi_ubicacion"
-            android:title="Mi ubicación" />
+            android:title="@string/menu_mi_ubicacion" />
+        <item
+            android:id="@+id/informacion"
+            android:icon="@drawable/ic_informacion"
+            android:title="@string/menu_informacion" />
         <item
             android:id="@+id/compartir"
             android:icon="@drawable/ic_compartir"
-            android:title="Compartir" />
+            android:title="@string/menu_compartir" />
         <item
             android:id="@+id/favoritos"
             android:icon="@drawable/ic_favoritos"
-            android:title="Favoritos" />
+            android:title="@string/menu_favoritos" />
     </group>
 
 </menu>

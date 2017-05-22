@@ -3,6 +3,8 @@ package com.anton.wifigijon.Activities;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
+
+import com.anton.wifigijon.Fragments.FragmentGoogleMaps;
 import com.anton.wifigijon.Fragments.Fragment_info;
 import com.anton.wifigijon.R;
 import android.support.v4.view.GravityCompat;
@@ -20,23 +22,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
     FragmentManager fragmentManager = getSupportFragmentManager();
+    private boolean mTwoPanes = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (findViewById(R.id.map_land_fragment) != null) {
+            mTwoPanes = true;
+        }
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         initDrawer();
 
-        // cambiar la actividad inicial por un layout de bienvenida para que no quede una lista de fondo
-        if (savedInstanceState == null) {
-            navigationView.setCheckedItem(R.id.visualizar);
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list(), "prueba").commit();
-            setTitle(getString(R.string.app_name));
-        }
+
 
     }//onCreate
 
@@ -62,17 +64,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //prueba con las etiquetas, falta crear fragments para las funcionalidades y meterlas en cada pestaña
         int id = item.getItemId();
         //replace -> dónde reemplazar, qué reemplazar
-        if (id == R.id.visualizar) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();
+        if (id == R.id.puntos_wifi) {
+            if (mTwoPanes) {
+                fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
+                setTitle(getString(R.string.fragmento_lista));
+                fragmentManager.beginTransaction().replace(R.id.map_land_fragment, new FragmentGoogleMaps()).commit();
+                setTitle(getString(R.string.actividad_mapa));
+            } else {
+                fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
+                setTitle(getString(R.string.fragmento_lista));
+            }
+            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
             setTitle(getString(R.string.fragmento_lista));
         } else if (id == R.id.mi_ubicacion) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_info()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new FragmentGoogleMaps()).commit();
             setTitle(getString(R.string.fragmento_mi_ubicacion));
+        } else if (id == R.id.informacion) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_info()).commit();
+            setTitle(getString(R.string.fragmento_informacion));
         } else if (id == R.id.compartir) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
             setTitle(getString(R.string.fragmento_compartir));
         } else if (id == R.id.favoritos) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new Fragment_list()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
             setTitle(getString(R.string.fragmento_favoritos));
         }
 

@@ -11,14 +11,13 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.anton.wifigijon.Activities.GoogleMaps;
+
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 
 import com.anton.wifigijon.Activities.Info;
-import com.anton.wifigijon.Activities.MainActivity;
-import com.anton.wifigijon.Fragments.Fragment_info;
-import com.anton.wifigijon.Fragments.Fragment_show_info;
 import com.anton.wifigijon.R;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +32,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.AdapterViewHolder> {
     private Context context;
     private int type;
 
+    FragmentManager fragmentManager;
 
     public static class AdapterViewHolder extends RecyclerView.ViewHolder {
         // Campos respectivos de un item

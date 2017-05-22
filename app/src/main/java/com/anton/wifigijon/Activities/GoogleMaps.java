@@ -8,27 +8,56 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.anton.wifigijon.Fragments.FragmentGoogleMaps;
 import com.anton.wifigijon.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class GoogleMaps extends AppCompatActivity  implements OnMapReadyCallback{
+public class GoogleMaps extends AppCompatActivity{
 
-    private GoogleMap mMap;
+    private String nombre;
+    private float latitud;
+    private float longitud;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_maps);
+
+        // Existe el contenedor del fragmento?
+        if (findViewById(R.id.fragment_container_map) != null) {
+
+            // Si estamos restaurando desde un estado previo no hacemos nada
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            // Crear el fragmento pasándole el parámetro
+            Intent intent = getIntent();
+            Bundle bundle = intent.getExtras();
+            nombre = bundle.getString("nombre");
+            latitud = bundle.getFloat("latitud");
+            longitud = bundle.getFloat("longitud");
+            FragmentGoogleMaps fragment =
+                    FragmentGoogleMaps.newInstance(nombre, latitud, longitud);
+            // Añadir el fragmento al contenedor 'fragment_container'
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container_map, fragment).commit();
+        }
+/*
+            // Añadir el fragmento al contenedor 'fragment_container'
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, fragment).commit();
+        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        */
     }
 
     /**
@@ -44,30 +73,7 @@ public class GoogleMaps extends AppCompatActivity  implements OnMapReadyCallback
     /*
     MÉTODO SOBREESCRITO PARA QUE MUESTRE LA UBICACIÓN ELEGIDA
      */
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        //SE CREAN LAS VARIABLES Y SE ALMACENAN LOS DATOS NECESARIOS A TRAVÉS DE UN BUNDLE
-        //QUE RECIBE LA INFORMACIÓN DEL ELEMENTO SELECCIONADO DE LA LISTA DE ZONAS WIFI
-        float lat = 0, lon = 0;
-        String nombre = "";
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if(bundle!=null)
-        {
-            lat = bundle.getFloat("latitud");
-            lon = bundle.getFloat("longitud");
-            nombre =(String) bundle.get("nombre");
-        }
 
-        //SE ASIGNA LA UBICACIÓN AL MAPA Y SE CONFIGURA LA CÁMARA Y LA ETIQUETA
-        LatLng ubicacion = new LatLng(lat, lon);
-        Marker prueba = mMap.addMarker(new MarkerOptions().position(ubicacion).title(nombre));
-        prueba.showInfoWindow();
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(17));
-
-    }
 
 }
 

@@ -1,9 +1,5 @@
-<!-- layout para la actividad que contiene el fragmento del mapa-->
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_container_map"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.anton.wifigijon.Activities.GoogleMaps" />
+    android:layout_height="match_parent" />

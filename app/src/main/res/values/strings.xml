@@ -1,15 +1,28 @@
 <resources>
-    <string name="app_name">Zonas wifi de Gijón</string>
-    <string name="fragmento_lista">Zonas wifi</string>
-    <string name="fragmento_mi_ubicacion">Buscar zona más cercana</string>
+    <string name="app_name">Gijón Wifi</string>
+    <!-- títulos de fragmentos-->
+    <string name="fragmento_lista">Puntos wifi de Gijón</string>
+    <string name="fragmento_mi_ubicacion">Buscar punto más cercano</string>
+    <string name="fragmento_informacion">Mostrar información</string>
     <string name="fragmento_compartir">Compartir información</string>
     <string name="fragmento_favoritos">Favoritos</string>
-    <string name="titulo_mapa">Mapa</string>
+    <!-- títulos de actividades-->
+    <string name="actividad_mapa">Mapa</string>
+    <string name="actividad_mi_ubicacion">Puntos más cercanos</string>
     <string name="actividad_info">Información de punto wifi</string>
+    <string name="actividad_correo">Compartir</string>
+    <string name="actividad_favoritos">Favoritos</string>
+
     <string name="menu_principal">Menú principal</string>
     <string name="ajustes">Ajustes</string>
     <string name="abierto">Menú abierto</string>
     <string name="cerrado">Menú cerrado</string>
+    <!-- ´titulos del menú -->
+    <string name="menu_puntos_wifi">Puntos wifi</string>
+    <string name="menu_mi_ubicacion">Cerca de mi</string>
+    <string name="menu_compartir">Compartir información</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="menu_informacion">Información</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

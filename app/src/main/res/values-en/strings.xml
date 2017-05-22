@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gijon Wifi Areas</string>
+    <string name="app_name">Gijon Wifi</string>
     <string name="fragmento_lista">Wifi areas</string>
     <string name="fragmento_mi_ubicacion">Find nearest area</string>
     <string name="fragmento_compartir">Share information</string>
@@ -10,6 +10,10 @@
     <string name="ajustes">Settings</string>
     <string name="abierto">Opened menu</string>
     <string name="cerrado">Closed menu</string>
+    <string name="menu_puntos_wifi">Wifi locations</string>
+    <string name="menu_ubicacion">Close to me</string>
+    <string name="menu_compartir">Share information</string>
+    <string name="menu_favoritos">Favorites</string>
 
 
 

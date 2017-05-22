@@ -1,10 +1,10 @@
 package com.anton.wifigijon.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import com.anton.wifigijon.Fragments.Fragment_show_info;
+import com.anton.wifigijon.Fragments.FragmentShowInfo;
 import com.anton.wifigijon.R;
 
 /**
@@ -12,18 +12,34 @@ import com.anton.wifigijon.R;
  */
 
 public class Info extends AppCompatActivity {
-    FragmentManager fragmentManager = getSupportFragmentManager();
+
+    String ubicacion = "";
+    String nombre = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_layout);
-/*
-        // cambiar la actividad inicial por un layout de bienvenida para que no quede una lista de fondo
-        if (savedInstanceState == null) {
-            fragmentManager.beginTransaction().replace(R.id.fragment_info, new Fragment_show_info()).commit();
-            setTitle(getString(R.string.actividad_info));
+
+        // Existe el contenedor del fragmento?
+        if (findViewById(R.id.fragment_container_info) != null) {
+
+            // Si estamos restaurando desde un estado previo no hacemos nada
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            // Crear el fragmento pasándole el parámetro
+            Intent intent = getIntent();
+            Bundle bundle = intent.getExtras();
+            nombre = bundle.getString("nombre");
+            ubicacion = bundle.getString("ubicacion");
+            FragmentShowInfo fragment =
+                    FragmentShowInfo.newInstance(nombre, ubicacion);
+
+            // Añadir el fragmento al contenedor 'fragment_container'
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container_info, fragment).commit();
         }
-*/
     }//onCreate
 }
