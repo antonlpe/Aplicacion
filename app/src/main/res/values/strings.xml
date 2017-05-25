@@ -1,17 +1,20 @@
 <resources>
     <string name="app_name">Gijón Wifi</string>
+    <!-- títulos de actividades-->
+    <string name="actividad_mapa">Mapa de punto wifi</string>
+    <string name="actividad_location">Buscar puntos wifi cercanos</string>
+    <string name="actividad_info">Seleccione punto wifi</string>
+    <string name="actividad_show_info">Información de punto wifi</string>
+    <string name="actividad_correo">Compartir</string>
+    <string name="actividad_favoritos">Favoritos</string>
+
     <!-- títulos de fragmentos-->
     <string name="fragmento_lista">Puntos wifi de Gijón</string>
     <string name="fragmento_mi_ubicacion">Buscar punto más cercano</string>
     <string name="fragmento_informacion">Mostrar información</string>
     <string name="fragmento_compartir">Compartir información</string>
     <string name="fragmento_favoritos">Favoritos</string>
-    <!-- títulos de actividades-->
-    <string name="actividad_mapa">Mapa</string>
-    <string name="actividad_mi_ubicacion">Puntos más cercanos</string>
-    <string name="actividad_info">Información de punto wifi</string>
-    <string name="actividad_correo">Compartir</string>
-    <string name="actividad_favoritos">Favoritos</string>
+
 
     <string name="menu_principal">Menú principal</string>
     <string name="ajustes">Ajustes</string>

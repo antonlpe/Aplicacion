@@ -18,6 +18,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 
 import com.anton.wifigijon.Activities.Info;
+import com.anton.wifigijon.Activities.ShowInfo;
 import com.anton.wifigijon.R;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +78,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.AdapterViewHolder> {
         viewHolder.nombre.setText(Items.getNombre());
         // esto es para que al pulsar el cardview (puede ser un linearlayout o lo que se quiera)
         // responda a la pulsacion con lo que quieras, abrir otra actividad en este caso
-        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(type == 0){
@@ -88,7 +89,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.AdapterViewHolder> {
                     intent.putExtra("nombre", Items.getNombre());
                     context.startActivity(intent);
                 } else if(type == 1){
-                    Intent intent = new Intent(context, Info.class);
+                    Intent intent = new Intent(context, ShowInfo.class);
                     //aqui se pasan los datos del item a la segunda actividad
                     intent.putExtra("ubicacion", Items.getUbicacion());
                     intent.putExtra("nombre", Items.getNombre());
@@ -96,5 +97,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.AdapterViewHolder> {
                 }
             }
         });
+
     }
 }

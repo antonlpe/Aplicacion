@@ -1,10 +1,10 @@
 package com.anton.wifigijon.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 
-import com.anton.wifigijon.Fragments.FragmentGoogleMaps;
 import com.anton.wifigijon.Fragments.Fragment_info;
 import com.anton.wifigijon.R;
 import android.support.v4.view.GravityCompat;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (mTwoPanes) {
                 fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
                 setTitle(getString(R.string.fragmento_lista));
-                fragmentManager.beginTransaction().replace(R.id.map_land_fragment, new FragmentGoogleMaps()).commit();
+                fragmentManager.beginTransaction().replace(R.id.map_land_fragment, new Fragment_list()).commit();
                 setTitle(getString(R.string.actividad_mapa));
             } else {
                 fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
@@ -77,17 +77,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
             setTitle(getString(R.string.fragmento_lista));
         } else if (id == R.id.mi_ubicacion) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new FragmentGoogleMaps()).commit();
-            setTitle(getString(R.string.fragmento_mi_ubicacion));
+            Intent intent = new Intent(this,Location.class);
+            startActivity(intent);
         } else if (id == R.id.informacion) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_info()).commit();
-            setTitle(getString(R.string.fragmento_informacion));
+            Intent intent = new Intent(this,Info.class);
+            startActivity(intent);
         } else if (id == R.id.compartir) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
-            setTitle(getString(R.string.fragmento_compartir));
+            Intent intent = new Intent(this,GoogleMaps.class);
+            startActivity(intent);
         } else if (id == R.id.favoritos) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
-            setTitle(getString(R.string.fragmento_favoritos));
+            Intent intent = new Intent(this,GoogleMaps.class);
+            startActivity(intent);
         }
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
