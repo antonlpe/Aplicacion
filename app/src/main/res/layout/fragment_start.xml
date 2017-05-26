@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.anton.wifigijon.Activities.MainActivity" >
+
+    <TextView
+        android:text="Zonas wifi \n de la ciudad \n de Gijón"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:id="@+id/textView2"
+        android:textSize="36sp"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:background="@color/cardview_light_background"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true" />
+
+</RelativeLayout>
