@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this,Info.class);
             startActivity(intent);
         } else if (id == R.id.compartir) {
-            Intent intent = new Intent(this,GoogleMaps.class);
+            Intent intent = new Intent(this,Mail.class);
             startActivity(intent);
         } else if (id == R.id.favoritos) {
             Intent intent = new Intent(this,GoogleMaps.class);

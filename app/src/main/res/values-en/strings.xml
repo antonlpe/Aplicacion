@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gijon Wifi</string>
-    <string name="fragmento_lista">Wifi areas</string>
-    <string name="fragmento_mi_ubicacion">Find nearest area</string>
-    <string name="fragmento_compartir">Share information</string>
-    <string name="fragmento_favoritos">Favorites</string>
-    <string name="titulo_mapa">Map</string>
-    <string name="menu_principal">Main menu</string>
-    <string name="ajustes">Settings</string>
-    <string name="abierto">Opened menu</string>
-    <string name="cerrado">Closed menu</string>
-    <string name="menu_puntos_wifi">Wifi locations</string>
-    <string name="menu_ubicacion">Close to me</string>
-    <string name="menu_compartir">Share information</string>
-    <string name="menu_favoritos">Favorites</string>
+    <string name="app_name">Gijón Wifi</string>
+    <!-- títulos de actividades-->
+    <string name="actividad_mapa">Mapa de punto wifi</string>
+    <string name="actividad_location">Buscar puntos wifi cercanos</string>
+    <string name="actividad_info">Seleccione punto wifi</string>
+    <string name="actividad_show_info">Información de punto wifi</string>
+    <string name="actividad_correo">Compartir</string>
+    <string name="actividad_favoritos">Favoritos</string>
 
+    <!-- títulos de fragmentos-->
+    <string name="fragmento_lista">Puntos wifi de Gijón</string>
+    <string name="fragmento_mi_ubicacion">Buscar punto más cercano</string>
+    <string name="fragmento_informacion">Mostrar información</string>
+    <string name="fragmento_compartir">Compartir información</string>
+    <string name="fragmento_favoritos">Favoritos</string>
 
-
+    <string name="menu_principal">Menú principal</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="abierto">Menú abierto</string>
+    <string name="cerrado">Menú cerrado</string>
+    <!-- ´titulos del menú -->
+    <string name="menu_puntos_wifi">Puntos wifi</string>
+    <string name="menu_mi_ubicacion">Cerca de mi</string>
+    <string name="menu_compartir">Compartir información</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="menu_informacion">Información</string>
+    <!-- String del mail -->
+    <string name="para">Para</string>
+    <string name="asunto">Asunto</string>
+    <string name="escribe">Escribe un correo</string>
+    <string name="enviar">Enviar</string>
 </resources>
