@@ -5,24 +5,20 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 
-import com.anton.wifigijon.Data.Adapter;
 import com.anton.wifigijon.Data.Items;
 import com.anton.wifigijon.Fragments.FragmentStart;
-import com.anton.wifigijon.Fragments.Fragment_info;
 import com.anton.wifigijon.R;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import com.anton.wifigijon.Fragments.Fragment_list;
-import com.google.android.gms.maps.SupportMapFragment;
 
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        Fragment_list.Callbacks{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Toolbar toolbar;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
@@ -44,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FragmentStart fragment = new FragmentStart();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.content_frame_main, fragment).commit();
-
         initDrawer();
 
 
@@ -74,8 +69,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         //replace -> dónde reemplazar, qué reemplazar
         if (id == R.id.puntos_wifi) {
-             fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
-             setTitle(getString(R.string.fragmento_lista));
+             Intent intent = new Intent(this,List.class);
+            startActivity(intent);
         } else if (id == R.id.mi_ubicacion) {
             Intent intent = new Intent(this,Location.class);
             startActivity(intent);
@@ -91,13 +86,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    @Override
-    public void onItemSelected(Items item) {
-        Intent intent = new Intent(this, GoogleMaps.class);
-        //aqui se pasan los datos del item a la segunda actividad
-        intent.putExtra("latitud", item.getLat());
-        intent.putExtra("longitud", item.getLon());
-        intent.putExtra("nombre", item.getNombre());
-        startActivity(intent);
-    }
+
 }

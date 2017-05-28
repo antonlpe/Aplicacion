@@ -53,6 +53,10 @@
             android:name=".Activities.InfoMail"
             android:label="@string/actividad_info_mail"></activity>
 
+        <activity
+            android:name=".Activities.List"
+            android:label="@string/actividad_list"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

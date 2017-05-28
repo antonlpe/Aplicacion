@@ -74,7 +74,6 @@ public class Adapter extends BaseAdapter {
 
         Items item = (Items) getItem(position);
         viewHolder.mItemName.setText(item.getNombre());
-
         return rowView;
     }
 

@@ -37,11 +37,14 @@ public class Info extends AppCompatActivity implements Fragment_info.Callbacks{
             //aqui se pasan los datos del item a la segunda actividad
             intent.putExtra("ubicacion", item.getUbicacion());
             intent.putExtra("nombre", item.getNombre());
+            intent.putExtra("tipo", item.getTipo());
+            intent.putExtra("correo", item.getCorreo());
             startActivity(intent);
         }
         else{
             fragment.beginTransaction().replace(R.id.fragment_container_show_info,
-                    FragmentShowInfo.newInstance(item.getNombre(),item.getUbicacion())).commit();
+                    FragmentShowInfo.newInstance(item.getNombre(),item.getUbicacion(),
+                            item.getTipo(),item.getCorreo())).commit();
         }
     }
 }

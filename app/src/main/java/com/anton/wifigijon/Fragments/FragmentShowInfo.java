@@ -15,18 +15,23 @@ public class FragmentShowInfo extends Fragment {
 
     String ubicacion = "";
     String nombre = "";
+    String tipo="";
+    String correo="";
     String contenido;
     public FragmentShowInfo() {
         // Required empty public constructor
     }
 
 
-    public static FragmentShowInfo newInstance(String nombre, String ubicacion){
+    public static FragmentShowInfo newInstance(String nombre, String ubicacion, String tipo, String correo){
         FragmentShowInfo fragment = new FragmentShowInfo();
 
         Bundle bundle = new Bundle();
         bundle.putString("nombre", nombre);
         bundle.putString("ubicacion", ubicacion);
+        bundle.putString("tipo", tipo);
+        bundle.putString("correo", correo);
+
         fragment.setArguments(bundle);
 
         return fragment;
@@ -49,7 +54,9 @@ public class FragmentShowInfo extends Fragment {
         if (args != null) {
             nombre = args.getString("nombre");
             ubicacion = args.getString("ubicacion");
-            contenido = "Nombre: "+nombre+"\n"+"Ubicación: "+ubicacion+"\n";
+            tipo = args.getString("tipo");
+            correo = args.getString("correo");
+            contenido = "Nombre: "+nombre+"\n\n"+"Ubicación: "+ubicacion+"\n\n"+"Tipo: "+tipo+"\n\n"+"Correo: "+correo;
             textView.setText(contenido);
         } else {
             textView.setText(null);

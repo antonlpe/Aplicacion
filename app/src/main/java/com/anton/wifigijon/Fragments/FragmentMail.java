@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.anton.wifigijon.R;
 
@@ -64,17 +65,16 @@ public class FragmentMail extends Fragment {
             public void onClick(View v) {
                 etContenido = (EditText) rootView.findViewById(R.id.etContenido);
                 Bundle args = getArguments();
-                //si da tiempo probar enviar a varios o datos adjuntos
-                String destinatario = etDestinatario.getText().toString();
-                String asunto = etAsunto.getText().toString();
-                //escribimos los datos del punto wifi
                 nombre = args.getString("nombre");
                 ubicacion = args.getString("ubicacion");
                 tipo = args.getString("tipo");
                 correo = args.getString("correo");
                 datos = "Nombre: "+nombre+"\n"+"Ubicación: "+ubicacion+"\n"+"Tipo de wifi: "+tipo+"\n"+"Correo: "+correo;
+                etContenido.setText(datos, TextView.BufferType.EDITABLE);
+                //si da tiempo probar enviar a varios o datos adjuntos
+                String destinatario = etDestinatario.getText().toString();
+                String asunto = etAsunto.getText().toString();
                 String contenido = etContenido.getText().toString();
-                etContenido.setText(datos);
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
                 emailIntent.setData(Uri.fromParts("mailto", destinatario, // destinatario
                         null));

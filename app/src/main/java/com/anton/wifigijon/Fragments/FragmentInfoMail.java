@@ -74,7 +74,13 @@ public class FragmentInfoMail extends Fragment implements AdapterView.OnItemClic
                     if(ubicacion != null){
                         String nombre = response.getDirectorio().get(i).getNombre().getNombreMarcador();
                         String tipo = response.getDirectorio().get(i).getTipo();
-                        String correo = response.getDirectorio().get(i).getCorreoElectronico();
+                        String correo = "";
+                        if(response.getDirectorio().get(i).getCorreoElectronico()==""){
+                            correo = "No disponible";
+                        }
+                        else{
+                            correo = response.getDirectorio().get(i).getCorreoElectronico();
+                        }
                         items.add(new Items(R.drawable.ic_wifi, nombre, ubicacion, tipo, correo));
                     }
                 }

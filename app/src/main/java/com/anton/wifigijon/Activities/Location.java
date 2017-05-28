@@ -62,7 +62,7 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback, G
         //SE ASIGNA LA UBICACIÓN AL MAPA Y SE CONFIGURA LA CÁMARA Y LA ETIQUETA
         LatLng pos = new LatLng(43.5293101, -5.6773233);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(pos));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(14));
 
         final ArrayList<Items> items = new ArrayList<>();
         //marcas de todos los puntos para ver y situarse en base a nuestra posicion
@@ -97,7 +97,7 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback, G
         //Y nuestra ubicación
         mMap.setOnMyLocationButtonClickListener(this);
         enableMyLocation();
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(14));
     }
     /**
      * Enables the My Location layer if the fine location permission has been granted.

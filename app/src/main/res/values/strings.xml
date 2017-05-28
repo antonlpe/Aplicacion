@@ -8,7 +8,8 @@
     <string name="actividad_correo">Compartir</string>
     <string name="actividad_favoritos">Favoritos</string>
     <string name="actividad_mail">Escribir correo</string>
-    <string name="actividad_info_mail">selecciona un punto a compartir</string>
+    <string name="actividad_info_mail">Selecciona un punto a compartir</string>
+    <string name="actividad_list">Puntos wifi de Gijón</string>
 
     <!-- títulos de fragmentos-->
     <string name="fragmento_lista">Puntos wifi de Gijón</string>

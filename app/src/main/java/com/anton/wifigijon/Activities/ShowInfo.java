@@ -15,6 +15,8 @@ public class ShowInfo extends AppCompatActivity{
 
     String ubicacion = "";
     String nombre = "";
+    String tipo = "";
+    String correo = "";
 
 
     @Override
@@ -35,8 +37,10 @@ public class ShowInfo extends AppCompatActivity{
             Bundle bundle = intent.getExtras();
             nombre = bundle.getString("nombre");
             ubicacion = bundle.getString("ubicacion");
+            tipo = bundle.getString("tipo");
+            correo = bundle.getString("correo");
             FragmentShowInfo fragment =
-                    FragmentShowInfo.newInstance(nombre, ubicacion);
+                    FragmentShowInfo.newInstance(nombre, ubicacion, tipo, correo);
 
             // Añadir el fragmento al contenedor 'fragment_container_info'
             getSupportFragmentManager().beginTransaction()
