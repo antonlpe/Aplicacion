@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,17 +16,11 @@ import com.anton.wifigijon.Data.GsonRequest;
 import com.anton.wifigijon.Data.Items;
 import com.anton.wifigijon.Data.VolleyManager;
 import com.anton.wifigijon.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * ESTE FRAGMENTO ES IGUAL QUE EL QUE MUESTRA LAS UBICACIONES DEL MAPA PERO COGERÁ LOS DATOS
- * PARA MOSTRAR INFORMACIÓN. SE CREA UN ADAPTER DE TIPO 1 PARA LLAMAR EN onBindViewHolder AL FRAGMENTO DE INFORMACIÓN
- *
- * */
+public class FragmentInfoMail extends Fragment implements AdapterView.OnItemClickListener {
 
-public class Fragment_info extends Fragment implements AdapterView.OnItemClickListener{
     private static final String URL = "http://datos.gijon.es/doc/ciencia-tecnologia/zona-wifi.json";
     View rootView;
     Context context;
@@ -42,13 +35,13 @@ public class Fragment_info extends Fragment implements AdapterView.OnItemClickLi
     private Callbacks mCallback = null;
 
 
-    public static Fragment_info newInstance() {
+    public static FragmentInfoMail newInstance() {
 
-        Fragment_info fragment = new Fragment_info();
+        FragmentInfoMail fragment = new FragmentInfoMail();
         return fragment;
     }
 
-    public Fragment_info() {
+    public FragmentInfoMail() {
     }
 
     @Override
@@ -66,11 +59,11 @@ public class Fragment_info extends Fragment implements AdapterView.OnItemClickLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_info, container, false);
+        rootView = inflater.inflate(R.layout.fragment_info_mail, container, false);
         context = getActivity();
         // Configurar la lista
         final List items = new ArrayList();
-        //Aquí obtenemos informacion
+        //Aquí informacion
         Response.Listener<Datos> response = new Response.Listener<Datos>() {
 
             @Override
@@ -95,7 +88,7 @@ public class Fragment_info extends Fragment implements AdapterView.OnItemClickLi
 
         return rootView;
     }
-    //método para rellenar el listview
+
     private void setupListView(List list){
         lvItems = (ListView) rootView.findViewById(R.id.list_view_items);
         mAdapter = new Adapter(getActivity(), list);
@@ -105,9 +98,7 @@ public class Fragment_info extends Fragment implements AdapterView.OnItemClickLi
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
         Items item = (Items) parent.getItemAtPosition(position);
         mCallback.onItemSelected(item);
     }
-
 }

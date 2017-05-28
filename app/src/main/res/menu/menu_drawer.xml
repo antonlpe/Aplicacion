@@ -19,10 +19,6 @@
             android:id="@+id/compartir"
             android:icon="@drawable/ic_compartir"
             android:title="@string/menu_compartir" />
-        <item
-            android:id="@+id/favoritos"
-            android:icon="@drawable/ic_favoritos"
-            android:title="@string/menu_favoritos" />
     </group>
 
 </menu>

@@ -2,33 +2,26 @@
 <resources>
     <string name="app_name">Gijón Wifi</string>
     <!-- títulos de actividades-->
-    <string name="actividad_mapa">Mapa de punto wifi</string>
-    <string name="actividad_location">Buscar puntos wifi cercanos</string>
-    <string name="actividad_info">Seleccione punto wifi</string>
-    <string name="actividad_show_info">Información de punto wifi</string>
-    <string name="actividad_correo">Compartir</string>
-    <string name="actividad_favoritos">Favoritos</string>
-
+    <string name="actividad_mapa">Map</string>
+    <string name="actividad_location">Nearest wifi points</string>
+    <string name="actividad_info">Select a wifi point</string>
+    <string name="actividad_show_info">Point wifi information</string>
+    <string name="actividad_correo">Share</string>
     <!-- títulos de fragmentos-->
-    <string name="fragmento_lista">Puntos wifi de Gijón</string>
-    <string name="fragmento_mi_ubicacion">Buscar punto más cercano</string>
-    <string name="fragmento_informacion">Mostrar información</string>
-    <string name="fragmento_compartir">Compartir información</string>
-    <string name="fragmento_favoritos">Favoritos</string>
-
-    <string name="menu_principal">Menú principal</string>
-    <string name="ajustes">Ajustes</string>
-    <string name="abierto">Menú abierto</string>
-    <string name="cerrado">Menú cerrado</string>
+    <string name="fragmento_lista">Gijón wifi points</string>
+    <string name="fragmento_mi_ubicacion">Search nearest wifi point</string>
+    <string name="fragmento_informacion">Show information</string>
+    <string name="fragmento_compartir">Share information</string>
+    <string name="fragmento_favoritos">Favorites</string>
     <!-- ´titulos del menú -->
-    <string name="menu_puntos_wifi">Puntos wifi</string>
-    <string name="menu_mi_ubicacion">Cerca de mi</string>
-    <string name="menu_compartir">Compartir información</string>
-    <string name="menu_favoritos">Favoritos</string>
-    <string name="menu_informacion">Información</string>
+    <string name="menu_puntos_wifi">Wifi points</string>
+    <string name="menu_mi_ubicacion">Close to me</string>
+    <string name="menu_compartir">Share information</string>
+
+    <string name="menu_informacion"></string>
     <!-- String del mail -->
-    <string name="para">Para</string>
-    <string name="asunto">Asunto</string>
-    <string name="escribe">Escribe un correo</string>
-    <string name="enviar">Enviar</string>
+    <string name="para">To</string>
+    <string name="asunto">Subject</string>
+    <string name="escribe">Write</string>
+    <string name="enviar">Send</string>
 </resources>

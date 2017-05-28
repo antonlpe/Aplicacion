@@ -3,8 +3,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <fragment class="com.anton.wifigijon.Fragments.Fragment_info"
-        android:id="@+id/fragment_container_info"
+    <fragment class="com.anton.wifigijon.Fragments.FragmentInfoMail"
+        android:id="@+id/fragment_info_mail"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"/>
 </FrameLayout>
+
+

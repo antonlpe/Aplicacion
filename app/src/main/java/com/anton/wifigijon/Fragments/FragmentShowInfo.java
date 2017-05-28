@@ -20,13 +20,14 @@ public class FragmentShowInfo extends Fragment {
         // Required empty public constructor
     }
 
+
     public static FragmentShowInfo newInstance(String nombre, String ubicacion){
         FragmentShowInfo fragment = new FragmentShowInfo();
 
-        Bundle args = new Bundle();
-        args.putString("nombre", nombre);
-        args.putString("ubicacion", ubicacion);
-        fragment.setArguments(args);
+        Bundle bundle = new Bundle();
+        bundle.putString("nombre", nombre);
+        bundle.putString("ubicacion", ubicacion);
+        fragment.setArguments(bundle);
 
         return fragment;
     }

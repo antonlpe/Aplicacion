@@ -88,7 +88,6 @@ public class Location extends AppCompatActivity implements OnMapReadyCallback, G
                     LatLng ubicacion = new LatLng(items.get(i).getLat(), items.get(i).getLon());
                     Marker prueba = mMap.addMarker(new MarkerOptions().position(ubicacion).title(items.get(i).getNombre()));
                     prueba.showInfoWindow();
-
                 }
             }//onResponse
         };//response

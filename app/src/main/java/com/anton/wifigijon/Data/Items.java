@@ -14,6 +14,8 @@ public class Items {
     private String ubicacion;
     private float lat;
     private float lon;
+    private String tipo;
+    private String correo;
 
     //constructor para mapa
     public Items(int imagen, String nombre, float lat, float lon) {
@@ -28,6 +30,15 @@ public class Items {
         this.imagen = imagen;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
+    }
+
+    //constructor de copia para la lista de mostrar información
+    public Items(int imagen, String nombre, String ubicacion, String tipo, String correo) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+        this.correo = correo;
+        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -47,4 +58,10 @@ public class Items {
     }
 
     public String getUbicacion() {return ubicacion;}
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getCorreo() { return correo;  }
 }

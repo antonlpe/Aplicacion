@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:baselineAligned="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:showDividers="middle" >
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <fragment class="com.anton.wifigijon.Fragments.Fragment_info"
+            android:id="@+id/fragment_container_info"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_container_show_info"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <fragment class="com.anton.wifigijon.Fragments.FragmentShowInfo"
+        android:id="@+id/fragment_show_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    </FrameLayout>
+</LinearLayout>
+

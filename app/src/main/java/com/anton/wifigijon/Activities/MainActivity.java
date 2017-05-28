@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 
+import com.anton.wifigijon.Data.Adapter;
+import com.anton.wifigijon.Data.Items;
+import com.anton.wifigijon.Fragments.FragmentStart;
 import com.anton.wifigijon.Fragments.Fragment_info;
 import com.anton.wifigijon.R;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +15,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import com.anton.wifigijon.Fragments.Fragment_list;
+import com.google.android.gms.maps.SupportMapFragment;
+
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        Fragment_list.Callbacks{
     Toolbar toolbar;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
@@ -35,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        FragmentStart fragment = new FragmentStart();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.content_frame_main, fragment).commit();
 
         initDrawer();
 
@@ -61,21 +70,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // aqui los items del drawer menu (el que se abre desde la izquierda como PlayStore)
-        //prueba con las etiquetas, falta crear fragments para las funcionalidades y meterlas en cada pestaña
+        //prueba_fragment con las etiquetas, falta crear fragments para las funcionalidades y meterlas en cada pestaña
         int id = item.getItemId();
         //replace -> dónde reemplazar, qué reemplazar
         if (id == R.id.puntos_wifi) {
-            if (mTwoPanes) {
-                fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
-                setTitle(getString(R.string.fragmento_lista));
-                fragmentManager.beginTransaction().replace(R.id.map_land_fragment, new Fragment_list()).commit();
-                setTitle(getString(R.string.actividad_mapa));
-            } else {
-                fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
-                setTitle(getString(R.string.fragmento_lista));
-            }
-            fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
-            setTitle(getString(R.string.fragmento_lista));
+             fragmentManager.beginTransaction().replace(R.id.content_frame_main, new Fragment_list()).commit();
+             setTitle(getString(R.string.fragmento_lista));
         } else if (id == R.id.mi_ubicacion) {
             Intent intent = new Intent(this,Location.class);
             startActivity(intent);
@@ -83,16 +83,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this,Info.class);
             startActivity(intent);
         } else if (id == R.id.compartir) {
-            Intent intent = new Intent(this,Mail.class);
-            startActivity(intent);
-        } else if (id == R.id.favoritos) {
-            Intent intent = new Intent(this,GoogleMaps.class);
+            Intent intent = new Intent(this,InfoMail.class);
             startActivity(intent);
         }
-
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
+    @Override
+    public void onItemSelected(Items item) {
+        Intent intent = new Intent(this, GoogleMaps.class);
+        //aqui se pasan los datos del item a la segunda actividad
+        intent.putExtra("latitud", item.getLat());
+        intent.putExtra("longitud", item.getLon());
+        intent.putExtra("nombre", item.getNombre());
+        startActivity(intent);
+    }
 }

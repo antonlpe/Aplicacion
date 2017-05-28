@@ -21,9 +21,29 @@ public class FragmentMail extends Fragment {
     EditText etContenido;
     Button btEnviar;
 
+    String ubicacion = "";
+    String nombre = "";
+    String correo = "";
+    String tipo = "";
+    String datos = "";
+
     public FragmentMail() {
         // Required empty public constructor
     }
+
+    public static FragmentMail newInstance(String nombre, String ubicacion, String tipo, String correo){
+        FragmentMail fragment = new FragmentMail();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("nombre", nombre);
+        bundle.putString("ubicacion", ubicacion);
+        bundle.putString("tipo", tipo);
+        bundle.putString("correo", correo);
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,12 +62,20 @@ public class FragmentMail extends Fragment {
         btEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                etContenido = (EditText) rootView.findViewById(R.id.etContenido);
+                Bundle args = getArguments();
                 //si da tiempo probar enviar a varios o datos adjuntos
                 String destinatario = etDestinatario.getText().toString();
                 String asunto = etAsunto.getText().toString();
+                //escribimos los datos del punto wifi
+                nombre = args.getString("nombre");
+                ubicacion = args.getString("ubicacion");
+                tipo = args.getString("tipo");
+                correo = args.getString("correo");
+                datos = "Nombre: "+nombre+"\n"+"Ubicación: "+ubicacion+"\n"+"Tipo de wifi: "+tipo+"\n"+"Correo: "+correo;
                 String contenido = etContenido.getText().toString();
+                etContenido.setText(datos);
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-
                 emailIntent.setData(Uri.fromParts("mailto", destinatario, // destinatario
                         null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, asunto);
