@@ -48,14 +48,14 @@ public class FragmentShowInfo extends Fragment {
     }
 
     public void loadTextView(){
-        Bundle args = getArguments();
+        Bundle bundle = getArguments();
         textView = (TextView) rootView.findViewById(R.id.text_info);
         contenido = new String();
-        if (args != null) {
-            nombre = args.getString("nombre");
-            ubicacion = args.getString("ubicacion");
-            tipo = args.getString("tipo");
-            correo = args.getString("correo");
+        if (bundle != null) {
+            nombre = bundle.getString("nombre");
+            ubicacion = bundle.getString("ubicacion");
+            tipo = bundle.getString("tipo");
+            correo = bundle.getString("correo");
             contenido = "Nombre: "+nombre+"\n\n"+"Ubicación: "+ubicacion+"\n\n"+"Tipo: "+tipo+"\n\n"+"Correo: "+correo;
             textView.setText(contenido);
         } else {

@@ -31,7 +31,8 @@ public class Mail extends AppCompatActivity {
         ubicacion = bundle.getString("ubicacion");
         tipo = bundle.getString("tipo");
         correo = bundle.getString("correo");
-        fragment.beginTransaction().replace(R.id.fragment_container_mail, new FragmentMail()).commit();
+        fragment.beginTransaction().replace(R.id.fragment_container_mail,
+                FragmentMail.newInstance(nombre, ubicacion, tipo, correo)).commit();
 
 
     }//onCreate

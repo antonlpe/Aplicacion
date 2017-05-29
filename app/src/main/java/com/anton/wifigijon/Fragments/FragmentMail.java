@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.anton.wifigijon.R;
 
@@ -51,26 +50,34 @@ public class FragmentMail extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_mail, container, false);
+        rellenar();
+        pulsar();
+        return rootView;
+    }
+
+    private void rellenar(){
         etDestinatario = (EditText) rootView.findViewById(R.id.etDestinatario);
         etAsunto = (EditText) rootView.findViewById(R.id.etAsunto);
         etContenido = (EditText) rootView.findViewById(R.id.etContenido);
         btEnviar = (Button) rootView.findViewById(R.id.btEnviar);
-        pulsar();
-        return rootView;
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            nombre = bundle.getString("nombre");
+            ubicacion = bundle.getString("ubicacion");
+            tipo = bundle.getString("tipo");
+            correo = bundle.getString("correo");
+            datos = "Nombre: " + nombre + "\n\n" + "Ubicación: " + ubicacion + "\n\n" + "Tipo: " + tipo + "\n\n" + "Correo: " + correo;
+            etContenido.setText(datos);
+        }
+        else{
+            etContenido.setText(null);
+        }
     }
 
     private void pulsar(){
         btEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                etContenido = (EditText) rootView.findViewById(R.id.etContenido);
-                Bundle args = getArguments();
-                nombre = args.getString("nombre");
-                ubicacion = args.getString("ubicacion");
-                tipo = args.getString("tipo");
-                correo = args.getString("correo");
-                datos = "Nombre: "+nombre+"\n"+"Ubicación: "+ubicacion+"\n"+"Tipo de wifi: "+tipo+"\n"+"Correo: "+correo;
-                etContenido.setText(datos, TextView.BufferType.EDITABLE);
                 //si da tiempo probar enviar a varios o datos adjuntos
                 String destinatario = etDestinatario.getText().toString();
                 String asunto = etAsunto.getText().toString();

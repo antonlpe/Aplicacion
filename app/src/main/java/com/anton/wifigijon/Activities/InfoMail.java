@@ -36,7 +36,6 @@ public class InfoMail extends AppCompatActivity implements FragmentInfoMail.Call
             intent.putExtra("nombre", item.getNombre());
             intent.putExtra("tipo", item.getTipo());
             intent.putExtra("correo", item.getCorreo());
-
             startActivity(intent);
         }
         else{

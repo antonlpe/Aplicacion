@@ -6,7 +6,6 @@
     <string name="actividad_info">Seleccione punto wifi</string>
     <string name="actividad_show_info">Información de punto wifi</string>
     <string name="actividad_correo">Compartir</string>
-    <string name="actividad_favoritos">Favoritos</string>
     <string name="actividad_mail">Escribir correo</string>
     <string name="actividad_info_mail">Selecciona un punto a compartir</string>
     <string name="actividad_list">Puntos wifi de Gijón</string>
@@ -18,22 +17,18 @@
     <string name="fragmento_compartir">Compartir información</string>
     <string name="fragmento_favoritos">Favoritos</string>
 
-    <string name="menu_principal">Menú principal</string>
-    <string name="ajustes">Ajustes</string>
-    <string name="abierto">Menú abierto</string>
-    <string name="cerrado">Menú cerrado</string>
     <!-- ´titulos del menú -->
     <string name="menu_puntos_wifi">Puntos wifi</string>
     <string name="menu_mi_ubicacion">Cerca de mi</string>
     <string name="menu_compartir">Compartir información</string>
-    <string name="menu_favoritos">Favoritos</string>
     <string name="menu_informacion">Información</string>
     <!-- String del mail -->
     <string name="destinatario">Para</string>
     <string name="asunto">Asunto</string>
     <string name="contenido">Escribe un correo</string>
     <string name="enviar">Enviar</string>
+    <string name="abierto">Abierto</string>
+    <string name="cerrado">Cerrado</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -7,6 +7,10 @@
     <string name="actividad_info">Select a wifi point</string>
     <string name="actividad_show_info">Point wifi information</string>
     <string name="actividad_correo">Share</string>
+    <string name="actividad_mail">Write</string>
+    <string name="actividad_info_mail">Share info mail</string>
+    <string name="actividad_list">Gijón wifi points</string>
+
     <!-- títulos de fragmentos-->
     <string name="fragmento_lista">Gijón wifi points</string>
     <string name="fragmento_mi_ubicacion">Search nearest wifi point</string>
@@ -16,12 +20,14 @@
     <!-- ´titulos del menú -->
     <string name="menu_puntos_wifi">Wifi points</string>
     <string name="menu_mi_ubicacion">Close to me</string>
-    <string name="menu_compartir">Share information</string>
+    <string name="menu_compartir">Share información</string>
+    <string name="menu_informacion">Information</string>
+    <string name="abierto">Open</string>
 
-    <string name="menu_informacion"></string>
     <!-- String del mail -->
-    <string name="para">To</string>
+    <string name="destinatario">To</string>
     <string name="asunto">Subject</string>
-    <string name="escribe">Write</string>
+    <string name="contenido">Write</string>
     <string name="enviar">Send</string>
+    <string name="cerrado">Closed</string>
 </resources>
